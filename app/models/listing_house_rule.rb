@@ -1,0 +1,2 @@
+class ListingHouseRule < ApplicationRecord
+end
