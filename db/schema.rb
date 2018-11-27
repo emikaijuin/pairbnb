@@ -10,69 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_27_092833) do
+ActiveRecord::Schema.define(version: 2018_11_27_071728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "amenities", force: :cascade do |t|
-    t.string "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "house_rules", force: :cascade do |t|
-    t.string "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "listing_amenities", force: :cascade do |t|
-    t.bigint "listing_id"
-    t.bigint "amenity_id"
-    t.integer "quantity"
-    t.text "detail"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["amenity_id"], name: "index_listing_amenities_on_amenity_id"
-    t.index ["listing_id"], name: "index_listing_amenities_on_listing_id"
-  end
-
-  create_table "listing_house_rules", force: :cascade do |t|
-    t.bigint "listing_id"
-    t.bigint "house_rule_id"
-    t.text "detail"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["house_rule_id"], name: "index_listing_house_rules_on_house_rule_id"
-    t.index ["listing_id"], name: "index_listing_house_rules_on_listing_id"
-  end
-
-  create_table "listings", force: :cascade do |t|
-    t.text "title"
-    t.text "description"
-    t.text "property_type"
-    t.text "property_subtype"
-    t.integer "guests"
-    t.integer "bedrooms"
-    t.integer "beds"
-    t.float "bathrooms"
-    t.text "address"
-    t.text "secondary_address"
-    t.text "city"
-    t.text "state"
-    t.text "postal_code"
-    t.text "country"
-    t.bigint "user_id"
-    t.text "details", array: true
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["bathrooms"], name: "index_listings_on_bathrooms"
-    t.index ["bedrooms"], name: "index_listings_on_bedrooms"
-    t.index ["beds"], name: "index_listings_on_beds"
-    t.index ["guests"], name: "index_listings_on_guests"
-    t.index ["user_id"], name: "index_listings_on_user_id"
-  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
