@@ -1,5 +1,12 @@
 class ListingsController < ApplicationController
+  before_action :set_listing, except: [:index, :new, :create]
+
   def index
+    if params[:city]
+      @listings = Listing.where(city: params[:city])
+    else
+      @listings = Listing.featured
+    end
   end
 
   def new
@@ -18,5 +25,11 @@ class ListingsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def set_listing
+    @listing = Listing.find(params[:id])
   end
 end
