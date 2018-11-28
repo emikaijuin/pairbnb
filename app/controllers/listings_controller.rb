@@ -2,7 +2,7 @@ class ListingsController < ApplicationController
   before_action :set_listing, except: [:index, :new, :create]
 
   def index
-    if params[:city]
+    if params[:search]
       @listings = Listing.where(city: params[:city])
     else
       @listings = Listing.featured
