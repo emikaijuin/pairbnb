@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 # Use slim html template
-gem 'slim'
+# gem 'slim'
 gem 'slim-rails'
 # Use Devise to authenticate users
 gem 'devise'
