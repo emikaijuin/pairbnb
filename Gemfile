@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
-# Use slim html template
+# Use faker for seeding data
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 # gem 'slim'
 gem 'slim-rails'
 # Use Devise to authenticate users
