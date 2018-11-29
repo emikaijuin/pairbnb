@@ -2,6 +2,10 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
+# Use faker for seeding data
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+# gem 'slim'
+gem 'slim-rails'
 # Use Devise to authenticate users
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

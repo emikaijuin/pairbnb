@@ -1,0 +1,2 @@
+class ListingAmenity < ApplicationRecord
+end
