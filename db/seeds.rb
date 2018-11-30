@@ -56,7 +56,7 @@ ActiveRecord::Base.transaction do
     listing.postal_code = Faker::Address.zip
     listing.country = Faker::Address.country 
     # User
-    listing.user_id = User.order("RANDOM()").limit(1)
+    listing.user_id = User.order("RANDOM()").first.id
 
     listing.save
   end
