@@ -1,0 +1,75 @@
+.container
+  .images-container
+    // Hard coded images to be replaced when images are added to listings
+    img.featured-image src="https://images.unsplash.com/photo-1455789743510-55194918fe8d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3b7a859477d466f0fb0905dcfd7a8502&auto=format&fit=crop&w=2000&q=80"
+    img.additional-images src="https://images.unsplash.com/photo-1494336934272-f0efcedfc8d7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cc5c2ace3dc86ec78e4de52197979f36&auto=format&fit=crop&w=2251&q=80"
+    img.additional-images src="https://images.unsplash.com/photo-1533779283484-8ad4940aa3a8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c28abca5496f663d907e0306008213f7&auto=format&fit=crop&w=2250&q=80"
+    img.additional-images src="https://images.unsplash.com/photo-1468821216911-c12c293b9787?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=fdcc45c96cc46bb2012fead30996290e&auto=format&fit=crop&w=2250&q=80"
+    img.additional-images src="https://images.unsplash.com/photo-1483095348487-53dbf97d8d5b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=183ebb14b6ef15d1d925a4492e4023ef&auto=format&fit=crop&w=2250&q=80"
+
+  .listing-container
+    .listing-details
+      .basic
+        .text
+          p.property_type
+            <strong> 
+              = @listing.property_type.upcase 
+            </strong>
+          h1.title
+            = @listing.title
+          p.city
+            = @listing.city
+        img.ui.circular.image.tiny src="/images/profile_pic.jpg"
+      .overview
+        .feature
+          .icon
+            i.fas.fa-home
+          .details
+            .property_type
+              <strong>#{@listing.property_type.capitalize}</strong>
+            .capacity
+              <span>#{@listing.guests} guests</span>
+              <span>#{@listing.beds} beds</span>
+              <span>#{@listing.bedrooms} bedrooms</span>
+              <span>#{@listing.bathrooms} bathrooms</span>
+        .feature 
+          / Hard-coding in the divs until back-end supports creating featured elements for every listing
+          .icon 
+            i.fas.fa-user 
+          .details 
+            .superhost
+              <strong>#{@listing.user.email} is a superhost!</strong>
+            .superhost-details
+              <span>Superhosts are experienced, highly rated hosts who are committed to providing great stays for guests.</span>
+        hr
+      .description
+        = @listing.description
+        a#expand-listing-description href="#"
+      .amenities 
+
+      .sleeping-arrangements
+      .availability
+      .reviews
+      .host-info
+      .location
+      .policies 
+    .booking-calendar-container
+      .calendar
+        span.price
+          <strong> $100 </strong>
+        span 
+          | per night
+        hr
+        form.ui.form 
+          .field 
+            label
+              | Check In
+            input type = "text" name="check_in" placeholder="Check In"
+          .field 
+            label
+              | Check Out
+            input type = "text" name="check_in" placeholder="Check In"   
+          button.ui.button type="submit"
+            | BOOK 
+    .similar-listings
+    .things-to-do

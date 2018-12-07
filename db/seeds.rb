@@ -40,7 +40,7 @@ ActiveRecord::Base.transaction do
   50.times do 
     listing = Listing.new
     # Basic Information
-    listing.title = Faker::Lorem.words(rand(3..6))
+    listing.title = Faker::Lorem.words(rand(3..6)).join(" ")
     listing.description = Faker::Lorem.sentence(rand(3..7))
     # Property Types
     property_type = property_types[rand(property_types.length)]
@@ -56,7 +56,7 @@ ActiveRecord::Base.transaction do
     listing.postal_code = Faker::Address.zip
     listing.country = Faker::Address.country 
     # User
-    listing.user_id = User.order("RANDOM()").limit(1)
+    listing.user_id = User.order("RANDOM()").first.id
 
     listing.save
   end

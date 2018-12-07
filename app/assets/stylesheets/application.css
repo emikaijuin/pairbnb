@@ -13,3 +13,66 @@
  *= require_tree .
  *= require_self
  */
+
+ body {
+   font-family: Poppins, Helvetica-Neue, sans-serif !important;
+ }
+
+ hr {
+   opacity: 0.4;
+ }
+
+.navbar-search {
+  padding-left: 12% !important;
+  border: 1px solid #EBEBEB !important;
+  border-radius: 4px;
+  height:48px;
+  width: 460px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 4px 12px rgba(26, 26, 29, 0.08) !important;  
+  color: rgb(72,72,72) !important;
+  font-weight: 600 !important;
+  font-size: 1.25rem;
+}
+.navbar-search::-webkit-input-placeholder {
+  font-weight: 600 !important;
+  color: rgb(72,72,72) !important;
+  font-size: 1.4rem !important;
+}
+
+.searchbar-icon {
+  color: black !important;
+  font-weight: 600 !important;
+  size: 1.25rem !important;
+}
+
+.ui.secondary.pointing.menu>.menu>.item.active {
+  background-color: transparent;
+  border-color: teal !important;
+  box-shadow: none;
+  color: rgba(0,0,0,.8);
+}
+
+.ui.icon.input>i.icon {
+  font-size: 1.75rem !important;
+  position: absolute;
+  left: 0;
+  color: black !important;
+  opacity: 1 !important;
+}
+
+.ui.segment{
+  margin-bottom: 0 !important;
+}
+
+@media (max-width: 1281px) {
+  .navbar-search {
+    min-width: 30%;
+    max-width: 90%;
+  }
+  .navbar-search::-webkit-input-placeholder {
+    font-weight: 600 !important;
+    color: rgb(72,72,72) !important;
+    font-size: 1.4rem !important;
+    padding-left: 2rem;
+  }
+}
