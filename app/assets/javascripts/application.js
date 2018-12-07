@@ -14,3 +14,11 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+$(document).on('turbolinks:load', function(){
+  $(".right.menu>.item").not('.img').hover(
+    function(){$(this).addClass('active')}, 
+    function(){$(this).removeClass('active')}
+  );
+});
+
