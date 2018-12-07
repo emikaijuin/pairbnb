@@ -1,13 +1,145 @@
+// Image Gallery
 .images-container {
-  width: 100%;
+  display: grid;
   height: 70vh;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-content: flex-end;
+  min-height: 600px;
+  grid-template-columns: 50% 25% 25%;
+  grid-template-rows: 50% 50%;
+  overflow: hidden;
 }
 
-.image {
-  width: 25%;
-  min-height: 50%;
+.featured-image {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
+
+  min-width: 100%;
+  max-height: 100%;
+}
+
+.additional-images {
+  min-width: 100%;
+  max-height: 100%;
+}
+
+// Listing Container
+  .listing-container {
+    width: 100%;
+    max-width: 1080px;
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    height: 200vh; // temporary height to test sticky calendar
+  }
+
+// basic details
+
+.listing-details {
+  width: 60%;
+  font-size: 1.25rem;
+}
+
+.listing-details .basic {
+  margin-top: 15px;
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+
+.listing-details .basic .text {
+ float: left;
+ margin-top: 10px;
+ width: 80%;
+}
+
+.listing-details .basic .text .property_type {
+  margin: 0;
+}
+
+.listing-details .basic .text .title {
+  margin: 0 0 10px 0;
+}
+
+.listing-details .basic img {
+  float: right;
+  margin-top: 15px;
+}
+
+// overview 
+
+.listing-details .overview .feature {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.listing-details .overview .feature .icon {
+  // margin-right: 2%;
+  width: 5%;
+}
+
+.listing-details .overview .feature .details {
+  // flex-grow: 1;
+  width: 95%;
+}
+
+.listing-details .overview .feature .details .capacity span {
+  margin-right: 10px;
+}
+
+// description 
+
+.listing-details .description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 10;
+  -webkit-box-orient: vertical;
+}
+
+// booking calendar
+ .booking-calendar-container {
+  width: 40%;
+  padding-left: 5%;
+  padding-top: 3%;
+
+  position: sticky;
+  top: 20px;
+}
+
+ .calendar {
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+  padding: 7% 5%;
+  background-color: white;
+}
+
+ .calendar .price {
+  font-size: 1.6rem;
+  color: rgb(72,72,72);
+}
+
+.calendar form button {
+  width: 100%;
+  background-color: #FF5A5F !important;
+  color: white !important;
+  font-size: 0.75rem;
+}
+
+
+// Media Queries
+
+@media (max-width: 1281px) {
+  // Images on tablet and mobile
+  .additional-images {
+    display: none;
+  }
+
+  .images-container {
+    display: block;
+    width: 100%;
+  }
 }
