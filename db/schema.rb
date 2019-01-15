@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_27_092833) do
+ActiveRecord::Schema.define(version: 2018_12_07_101547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,12 @@ ActiveRecord::Schema.define(version: 2018_11_27_092833) do
 
   create_table "house_rules", force: :cascade do |t|
     t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string "upload"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -47,6 +53,15 @@ ActiveRecord::Schema.define(version: 2018_11_27_092833) do
     t.datetime "updated_at", null: false
     t.index ["house_rule_id"], name: "index_listing_house_rules_on_house_rule_id"
     t.index ["listing_id"], name: "index_listing_house_rules_on_listing_id"
+  end
+
+  create_table "listing_images", force: :cascade do |t|
+    t.bigint "listing_id"
+    t.bigint "image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["image_id"], name: "index_listing_images_on_image_id"
+    t.index ["listing_id"], name: "index_listing_images_on_listing_id"
   end
 
   create_table "listings", force: :cascade do |t|
@@ -88,6 +103,18 @@ ActiveRecord::Schema.define(version: 2018_11_27_092833) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.date "birthday"
+    t.string "phone_number"
+    t.string "address"
+    t.string "secondary_address"
+    t.string "city"
+    t.string "state"
+    t.string "zip_code"
+    t.string "country"
+    t.integer "host", default: 0
+    t.integer "status", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
