@@ -24,7 +24,9 @@
       <div class="ui segment">
         <div class="ui secondary menu pointing" style="border:0;">
           <div class="item">
-            <img src="/images/airbnb_logo.PNG" alt="airbnb-logo" class="ui image" style="width:34px;height:auto;">
+            <%= link_to root_url do %>
+              <%= image_tag "/images/airbnb_logo.PNG", alt: "airbnb-logo", class: "ui image", style: "width:34px; height: auto; "%>
+            <% end %>
           </div>
           <div class="item">
             <div class="ui icon input">
@@ -33,9 +35,7 @@
             </div>
           </div>
           <div class="right menu">
-            <a class="item">
-              Add Listing
-            </a>
+            <%= link_to "Add Listing", new_listing_path, class: "item" %>
             <a class="item">
               Host
             </a>

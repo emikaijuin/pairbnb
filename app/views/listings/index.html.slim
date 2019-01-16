@@ -1,0 +1,10 @@
+.container
+  .listings
+    - @listings.each do |listing|
+      .listing
+        .title
+          = listing.title
+        .description
+          = listing.description
+        .link
+          = link_to "View Listing", listing_path(listing)
