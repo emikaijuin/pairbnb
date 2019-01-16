@@ -1,0 +1,70 @@
+.basic
+  h3
+    | Basic Info
+  .title
+    = f.label :title
+    = f.text_field :title
+  .description
+    = f.label :description
+    = f.text_field :description 
+  .property_type
+    = f.label :property_type
+    = f.select :property_type, options_for_select(Listing.property_types.keys)
+  .property_subtype
+    = f.label :property_subtype
+    = f.select :property_subtype, options_for_select(Listing.property_types["Apartment"])
+  .guests
+    = f.label :guests
+    = f.number_field :guests
+  .bedrooms
+    = f.label :bedrooms
+    = f.number_field :bedrooms
+  .beds
+    = f.label :beds 
+    = f.number_field :beds
+  .bathrooms
+    = f.label :bathrooms
+    = f.number_field :bathrooms 
+  .address
+    = f.label :address
+    = f.text_field :address 
+  .secondary_address
+    = f.label :secondary_address
+    = f.text_field :secondary_address
+  .city
+    = f.label :city
+    = f.text_field :city
+  .state
+    = f.label :state
+    = f.text_field :state
+  .postal_code
+    = f.label :postal_code
+    = f.text_field :postal_code
+  .country
+    = f.label :country
+    = f.text_field :country
+  .details
+    = f.label :details
+    = f.text_field :details
+  .images
+    = f.label :add_images
+    = f.file_field :images, multiple: true
+.house-rules
+  h3
+    | House Rules
+  = f.fields_for :house_rules do |ff|
+    - HouseRule.all.each do |rule|
+      div *{:class => rule.description}
+        = ff.label rule.description
+        = ff.check_box rule.description
+.amenities 
+  h3 
+    | Amenities
+  = f.fields_for :amenities do |ff|
+    - Amenity.all.each do |amenity|
+      div *{:class => amenity.description }
+        = ff.label amenity.description
+        = ff.check_box amenity.description
+
+
+  
