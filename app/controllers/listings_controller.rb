@@ -14,6 +14,7 @@ class ListingsController < ApplicationController
   end
 
   def create
+    byebug
     @listing = current_user.listings.new(listing_params)
     if @listing.save
       Image.add_to_listing(@listing, params[:listing][:images]) # this shouldn't be in controller- how to refactor out of controller? Add to a service layer?
@@ -67,7 +68,29 @@ class ListingsController < ApplicationController
      :state,
      :postal_code,
      :country,
-     :details
+     :details,
+     {amenities: [
+       :essentials,
+       :wifi,
+       :shampoo,
+       :closet_or_drawers,
+       :tv,
+       :heat,
+       :air_conditioning,
+       :breakfast_coffee_tea,
+       :desk_or_workspace,
+       :fireplace,
+       :iron,
+       :hair_dryer,
+       :private_entrance
+     ]},
+     {house_rules: [
+       :suitable_for_children,
+       :suitable_for_infants,
+       :suitable_for_pets,
+       :smoking_allowed,
+       :events_or_partied_allowed
+     ]}
      )
   end
 end
