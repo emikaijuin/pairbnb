@@ -28,3 +28,5 @@
 
 # Ignore local files used in development
 /public/images
+# Ignore application configuration
+/config/application.yml

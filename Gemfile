@@ -4,8 +4,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.1'
 # Use Kaminari to paginate 
 gem 'kaminari'
+# Use Figaro to hide keys
+gem 'figaro'
 # Use carrierwave for image storage
 gem 'carrierwave', '~> 1.0'
+gem 'fog-aws' # for amazon s3 cloud storage
 # Use faker for seeding data
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 # gem 'slim'
