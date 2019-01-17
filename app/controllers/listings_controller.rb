@@ -14,10 +14,8 @@ class ListingsController < ApplicationController
   end
 
   def create
-    byebug
-    @listing = current_user.listings.new(listing_params)
-    if @listing.save
-      Image.add_to_listing(@listing, params[:listing][:images]) # this shouldn't be in controller- how to refactor out of controller? Add to a service layer?
+    @listing, @errors = NewListingService.new(listing_params, current_user).run
+    if @listing.id
       redirect_to listing_path(@listing)
     else
       render :new
@@ -53,7 +51,6 @@ class ListingsController < ApplicationController
 
   def listing_params
     params.require(:listing).permit(
-     :images,
      :title,
      :description,
      :property_type,
@@ -69,28 +66,29 @@ class ListingsController < ApplicationController
      :postal_code,
      :country,
      :details,
-     {amenities: [
-       :essentials,
-       :wifi,
-       :shampoo,
-       :closet_or_drawers,
-       :tv,
-       :heat,
-       :air_conditioning,
-       :breakfast_coffee_tea,
-       :desk_or_workspace,
-       :fireplace,
-       :iron,
-       :hair_dryer,
-       :private_entrance
-     ]},
-     {house_rules: [
-       :suitable_for_children,
-       :suitable_for_infants,
-       :suitable_for_pets,
-       :smoking_allowed,
-       :events_or_partied_allowed
-     ]}
+     amenities: [
+      "14", # essentials
+      "15", # wifi
+      "16", # shampoo
+      "17", # closet_or_drawesr
+      "18", # tv
+      "19", # heat
+      "20", # air_conditioning
+      "21", # breakfast_coffee_tea
+      "22", # desk_or_workspace
+      "23", # fireplace
+      "24", # iron
+      "25", # hair_dryer
+      "26"  # private_entrance
+     ],
+     house_rules: [
+       "1", # suitable for children
+       "2", # suitable for infants
+       "3", # suitable for pets
+       "4", # smoking allowed
+       "5" # events or parties allowed
+     ],
+     images: []
      )
   end
 end
