@@ -56,7 +56,7 @@
     - HouseRule.all.each do |rule|
       div *{:class => rule.description}
         = ff.label rule.description
-        = ff.check_box rule.description
+        = ff.check_box rule.id
 .amenities 
   h3 
     | Amenities
@@ -64,7 +64,7 @@
     - Amenity.all.each do |amenity|
       div *{:class => amenity.description }
         = ff.label amenity.description
-        = ff.check_box amenity.description
+        = ff.check_box amenity.id
 
 
   
