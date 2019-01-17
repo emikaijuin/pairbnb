@@ -35,7 +35,4 @@ class Listing < ApplicationRecord
     }
   end
 
-  def property_subtypes
-    {}
-  end
 end

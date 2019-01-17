@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
+# Use Kaminari to paginate 
+gem 'kaminari'
 # Use carrierwave for image storage
 gem 'carrierwave', '~> 1.0'
 # Use faker for seeding data

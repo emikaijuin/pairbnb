@@ -29,9 +29,9 @@
               <strong>#{@listing.property_type.capitalize}</strong>
             .capacity
               <span>#{@listing.guests} guests</span>
-              <span>#{@listing.beds} beds</span>
-              <span>#{@listing.bedrooms} bedrooms</span>
-              <span>#{@listing.bathrooms} bathrooms</span>
+              <span>#{@listing.beds ? @listing.beds : 0} beds</span>
+              <span>#{@listing.bedrooms ? @listing.bedrooms : 0} bedrooms</span>
+              <span>#{@listing.bathrooms ? @listing.bathrooms : 0} bathrooms</span>
         .feature 
           / Hard-coding in the divs until back-end supports creating featured elements for every listing
           .icon 
@@ -45,8 +45,7 @@
       .description
         = @listing.description
         a#expand-listing-description href="#"
-      .amenities 
-
+      .amenities
       .sleeping-arrangements
       .availability
       .reviews

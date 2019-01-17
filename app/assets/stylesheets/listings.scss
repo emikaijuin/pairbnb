@@ -1,3 +1,42 @@
+/// INDEX PAGE
+
+.listings-filters {
+ width: 336px;
+ position: fixed;
+ height: 100%;
+}
+.listings-container {
+ margin-left: 336px;
+}
+
+.listings-items-container {
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: space-around;
+}
+
+.paginate {
+  width: 100%;
+}
+
+// CARDS
+
+.listing-cards {
+  width: 24%;
+  height: 300px;
+  margin: 3px;
+}
+
+.listing-card-image > img {
+  width: 100%;
+}
+
+.listing-card-description {
+  color: black;
+}
+
+/// SHOW PAGE
+
 // Image Gallery
 .images-container {
   display: grid;

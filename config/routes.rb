@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resources :users
   
   get "/listings/property_types" => "listings#property_types", as: "listing_property_types"
+  get "/listings/filter_listings" => "listings#filter", as: "filter_listings"
   resources :listings
 
   root :to => "listings#index"
+
 end
