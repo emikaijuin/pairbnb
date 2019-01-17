@@ -46,6 +46,19 @@
         = @listing.description
         a#expand-listing-description href="#"
       .amenities
+        hr 
+        h3 Amenities
+        div
+          - @listing.amenities.max(6).each do |amenity|
+            .amenity
+              .amenity-icon
+                - if amenity.icon.url
+                  = image_tag amenity.icon.url, class: "ui image mini"
+              .amenity-description
+                = amenity.description
+        .view-more-amenities 
+          - if @listing.amenities.count > 6 
+            = link_to "View All Amenities", "#"
       .sleeping-arrangements
       .availability
       .reviews
