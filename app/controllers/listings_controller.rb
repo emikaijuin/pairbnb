@@ -5,7 +5,7 @@ class ListingsController < ApplicationController
     if params[:search]
       @listings = Listing.where(city: params[:city])
     else
-      @listings = Listing.all
+      @listings = Listing.order(:title).page(params[:page]).per(24)
     end
   end
 
@@ -42,6 +42,15 @@ class ListingsController < ApplicationController
 			format.js {render :json => @property_subtypes }
     end
   end
+
+  def filter
+		@listings = params.include?("listing") ? (Listing.where(listing_params).order(:name).page params[:page]) : (Listing.all.order(:name).page params[:page])
+		
+		respond_to do |format|
+			format.js
+		end
+	end
+
 
   private
 
