@@ -4,4 +4,7 @@ class Amenity < ApplicationRecord
   has_many :listings, through: :listing_amenities
 
   mount_uploader :icon, IconUploader
+
+  scope :displayable, -> { where "icon IS NOT NULL" }
+
 end
