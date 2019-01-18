@@ -63,23 +63,30 @@
 }
 
 // Listing Container
-  .listing-container {
-    width: 100%;
-    max-width: 1080px;
-    margin: auto;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+.listing-container {
+  width: 100%;
+  max-width: 1080px;
+  margin: auto;
 
-    height: 200vh; // temporary height to test sticky calendar
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  height: 200vh; // temporary height to test sticky calendar
+}
+  
+
 
 // basic details
 
 .listing-details {
   width: 60%;
   font-size: 1.25rem;
+}
+
+.listing-details > div {
+  padding: 10px 0;
 }
 
 .listing-details .basic {
