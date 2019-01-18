@@ -1,0 +1,16 @@
+.listing-cards
+	= link_to listing_path(listing) do 
+		.listing-card-image
+			= image_tag "https://d22ir9aoo7cbf6.cloudfront.net/wp-content/uploads/sites/2/2016/11/Hero_airbnb_1.jpg"
+		.listing-card-description
+			div
+				span
+					strong
+						= listing.property_type.upcase 
+			div 
+				= listing.description 
+			div 
+				span
+					| $500 per night
+				span 
+					| Free Cancellation
