@@ -2,24 +2,7 @@ div
   .listings-filters
     = form_with scope: :filter, url: listings_path, method: :get do |f|
       ul
-        li
-          = f.label :pool
-          = f.check_box :pool, include_hidden: false
-        li
-          = f.label :gym
-          = f.check_box :gym, include_hidden: false
-        li
-          = f.label :hot_tub
-          = f.check_box :hot_tub, include_hidden: false
-        li
-          = f.label :free_parking
-          = f.check_box :free_parking, include_hidden: false
-        li
-          = f.label :hair_dryer
-          = f.check_box :hair_dryer, include_hidden: false
-        li
-          = f.label :essentials
-          = f.check_box :essentials, include_hidden: false
+        = render "filters", f: f, amenities: @amenities
       = f.submit :apply
 
   .listings-container
