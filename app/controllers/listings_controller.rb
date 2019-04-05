@@ -44,20 +44,11 @@ class ListingsController < ApplicationController
   # AJAX REQUESTS
 
   def property_types
-		@property_subtypes = Listing.property_types[params[:property_type]]
-		respond_to do |format|
-			format.js {render :json => @property_subtypes }
+    @property_subtypes = Listing.property_types[params[:property_type]]
+    respond_to do |format|
+      format.js { render :json => @property_subtypes }
     end
   end
-
-  def filter
-		@listings = params.include?("listing") ? (Listing.where(listing_params).order(:name).page params[:page]) : (Listing.all.order(:name).page params[:page])
-		
-		respond_to do |format|
-			format.js
-		end
-	end
-
 
   private
 
@@ -67,44 +58,44 @@ class ListingsController < ApplicationController
 
   def listing_params
     params.require(:listing).permit(
-     :title,
-     :description,
-     :property_type,
-     :property_subtype,
-     :guests,
-     :bedrooms,
-     :beds,
-     :bathrooms,
-     :address,
-     :secondary_address,
-     :city,
-     :state,
-     :postal_code,
-     :country,
-     :details,
-     amenities: [
-      "14", # essentials
-      "15", # wifi
-      "16", # shampoo
-      "17", # closet_or_drawesr
-      "18", # tv
-      "19", # heat
-      "20", # air_conditioning
-      "21", # breakfast_coffee_tea
-      "22", # desk_or_workspace
-      "23", # fireplace
-      "24", # iron
-      "25", # hair_dryer
-      "26"  # private_entrance
-     ],
-     house_rules: [
-       "1", # suitable for children
-       "2", # suitable for infants
-       "3", # suitable for pets
-       "4", # smoking allowed
-       "5" # events or parties allowed
-     ],
-     images: []
-     )
+      :title,
+      :description,
+      :property_type,
+      :property_subtype,
+      :guests,
+      :bedrooms,
+      :beds,
+      :bathrooms,
+      :address,
+      :secondary_address,
+      :city,
+      :state,
+      :postal_code,
+      :country,
+      :details,
+      amenities: [
+        "14", # essentials
+        "15", # wifi
+        "16", # shampoo
+        "17", # closet_or_drawesr
+        "18", # tv
+        "19", # heat
+        "20", # air_conditioning
+        "21", # breakfast_coffee_tea
+        "22", # desk_or_workspace
+        "23", # fireplace
+        "24", # iron
+        "25", # hair_dryer
+        "26"  # private_entrance
+      ],
+      house_rules: [
+        "1", # suitable for children
+        "2", # suitable for infants
+        "3", # suitable for pets
+        "4", # smoking allowed
+        "5" # events or parties allowed
+      ],
+      images: []
+    )
   end
 end
