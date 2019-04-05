@@ -14,7 +14,7 @@ class Listing < ApplicationRecord
     includes(:listing_amenities)
       .where(listing_amenities: {
                :amenity_id => (
-                 Amenity.where(:description => ["essentials", "hair_dryer"])
+                 Amenity.where(:description => amenities)
                )
              })
   }
