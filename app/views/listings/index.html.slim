@@ -1,24 +1,26 @@
 div
-  .listings-filters 
-    = form_with url: filter_listings_path, method: :get do |f|
+  .listings-filters
+    = form_with scope: :filter, url: listings_path, method: :get do |f|
       ul
-        li 
+        li
           = f.label :pool
           = f.check_box :pool, include_hidden: false
-        li 
+        li
           = f.label :gym
           = f.check_box :gym, include_hidden: false
-        li 
+        li
           = f.label :hot_tub
           = f.check_box :hot_tub, include_hidden: false
-        li 
+        li
           = f.label :free_parking
           = f.check_box :free_parking, include_hidden: false
+        li
+          = f.label :hair_dryer
+          = f.check_box :hair_dryer, include_hidden: false
+        li
+          = f.label :essentials
+          = f.check_box :essentials, include_hidden: false
       = f.submit :apply
 
-  .listings-container 
-    .paginate 
-      = paginate @listings 
-    .listings-items-container 
-      - @listings.each do |listing| 
-        = render "listings", listing: listing 
+  .listings-container
+    = render "listings", listings: @listings

@@ -6,5 +6,4 @@ class Amenity < ApplicationRecord
   mount_uploader :icon, IconUploader
 
   scope :displayable, -> { where "icon IS NOT NULL" }
-
 end

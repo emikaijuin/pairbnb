@@ -1,5 +1,4 @@
 class NewListingService
-
   def initialize(params, user)
     @house_rule_ids = params.delete(:house_rules)
     @amenity_ids = params.delete(:amenities)
@@ -12,8 +11,8 @@ class NewListingService
     if @listing.save
       associate_amenities_and_house_rules
       upload_images
-    else 
-      @errors = @listing.errors 
+    else
+      @errors = @listing.errors
     end
 
     return [@listing, @errors]
@@ -22,13 +21,13 @@ class NewListingService
   private
 
   def associate_amenities_and_house_rules
-    associate_amenities 
+    associate_amenities
     associate_house_rules
   end
 
   def associate_amenities
     begin
-      @amenity_ids.each do |k,v|
+      @amenity_ids.each do |k, v|
         @listing.amenities << Amenity.find(k) if v == "1"
       end
     rescue
@@ -38,7 +37,7 @@ class NewListingService
 
   def associate_house_rules
     begin
-      @house_rule_ids.each do |k,v|
+      @house_rule_ids.each do |k, v|
         @listing.house_rules << HouseRule.find(k) if v == "1"
       end
     rescue
@@ -47,11 +46,11 @@ class NewListingService
   end
 
   def upload_images
-    begin 
+    begin
       @image_files.each do |image_upload|
         @listing.images << Image.create(upload: image_upload)
       end
-    rescue 
+    rescue
       @errors << "There was an issue uploading your photos."
     end
   end

@@ -7,10 +7,10 @@ class CreateListings < ActiveRecord::Migration[5.2]
       t.text :property_type
       t.text :property_subtype
       ## Capacity
-      t.integer :guests, index: true, order: {guests: :asc}
-      t.integer :bedrooms, index: true, order: {bedrooms: :asc}
-      t.integer :beds, index: true, order: {beds: :asc}
-      t.float :bathrooms, index: true, order: {bathrooms: :asc}
+      t.integer :guests, index: true, order: { guests: :asc }
+      t.integer :bedrooms, index: true, order: { bedrooms: :asc }
+      t.integer :beds, index: true, order: { beds: :asc }
+      t.float :bathrooms, index: true, order: { bathrooms: :asc }
       ## Location
       t.text :address
       t.text :secondary_address
@@ -25,6 +25,5 @@ class CreateListings < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
-
   end
 end
