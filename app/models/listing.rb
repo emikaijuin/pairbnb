@@ -10,6 +10,15 @@ class Listing < ApplicationRecord
   has_many :listing_images
   has_many :images, through: :listing_images
 
+  scope :filter_by_amenities, ->(amenities) {
+    includes(:listing_amenities)
+      .where(listing_amenities: {
+               :amenity_id => (
+                 Amenity.where(:description => ["essentials", "hair_dryer"])
+               )
+             })
+  }
+
   def self.featured
     Listing.all # this will change to trending listings based on reviews once review feature is implemented
   end
