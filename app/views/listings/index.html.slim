@@ -1,9 +1,17 @@
 div
-  .listings-filters
-    = form_with scope: :filter, url: listings_path, method: :get do |f|
-      ul
+  .listings-filters.ui.segment
+    button.ui.basic.button.grey
+      | Amenities
+
+    ul.amenities
+      = form_with scope: :amenities, url: listings_path, method: :get do |f|
         = render "filters", f: f, amenities: @amenities
-      = f.submit :apply
+        = f.submit :apply
+
+      = form_with scope: :guests, url: listings_path, method: :get do |f|
+        li
+          = f.number_field :guests, min: 0
+          = f.submit
 
   .listings-container
     = render "listings", listings: @listings
