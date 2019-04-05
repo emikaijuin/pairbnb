@@ -4,8 +4,15 @@ class ListingsController < ApplicationController
   def index
     if params[:search]
       @listings = Listing.where(city: params[:city])
+    elsif params[:filter]
+      @listings = Listing.filter_by_amenities(params[:filter].keys).page(params[:page]).per(24)
     else
       @listings = Listing.order(:title).page(params[:page]).per(24)
+    end
+
+    respond_to do |format|
+      format.html()
+      format.js { render :filter }
     end
   end
 
