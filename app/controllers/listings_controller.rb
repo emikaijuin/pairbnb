@@ -2,6 +2,7 @@ class ListingsController < ApplicationController
   before_action :set_listing, except: [:index, :new, :create, :property_types]
 
   def index
+    @amenities = Amenity.all
     if params[:search]
       @listings = Listing.where(city: params[:city])
     elsif params[:filter]
