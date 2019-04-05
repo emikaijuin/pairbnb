@@ -14,28 +14,41 @@
  *= require_self
  */
 
- body {
-   font-family: Poppins, Helvetica-Neue, sans-serif !important;
- }
+body {
+  font-family: Poppins, Helvetica-Neue, sans-serif !important;
+}
 
- hr {
-   opacity: 0.4;
- }
+#body-container {
+  padding-top: 67px;
+  position: relative;
+}
+
+hr {
+  opacity: 0.4;
+}
+
+#navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  max-height: 67px;
+  box-sizing: border-box;
+}
 
 .navbar-search {
   padding-left: 12% !important;
-  border: 1px solid #EBEBEB !important;
+  border: 1px solid #ebebeb !important;
   border-radius: 4px;
-  height:48px;
+  height: 48px;
   width: 460px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 4px 12px rgba(26, 26, 29, 0.08) !important;  
-  color: rgb(72,72,72) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(26, 26, 29, 0.08) !important;
+  color: rgb(72, 72, 72) !important;
   font-weight: 600 !important;
   font-size: 1.25rem;
 }
 .navbar-search::-webkit-input-placeholder {
   font-weight: 600 !important;
-  color: rgb(72,72,72) !important;
+  color: rgb(72, 72, 72) !important;
   font-size: 1.4rem !important;
 }
 
@@ -45,14 +58,14 @@
   size: 1.25rem !important;
 }
 
-.ui.secondary.pointing.menu>.menu>.item.active {
+.ui.secondary.pointing.menu > .menu > .item.active {
   background-color: transparent;
   border-color: teal !important;
   box-shadow: none;
-  color: rgba(0,0,0,.8);
+  color: rgba(0, 0, 0, 0.8);
 }
 
-.ui.icon.input>i.icon {
+.ui.icon.input > i.icon {
   font-size: 1.75rem !important;
   position: absolute;
   left: 0;
@@ -60,7 +73,7 @@
   opacity: 1 !important;
 }
 
-.ui.segment{
+.ui.segment {
   margin-bottom: 0 !important;
 }
 
@@ -71,7 +84,7 @@
   }
   .navbar-search::-webkit-input-placeholder {
     font-weight: 600 !important;
-    color: rgb(72,72,72) !important;
+    color: rgb(72, 72, 72) !important;
     font-size: 1.4rem !important;
     padding-left: 2rem;
   }

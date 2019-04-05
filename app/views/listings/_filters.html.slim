@@ -1,0 +1,4 @@
+- @amenities.each do |amenity|
+  li
+    = f.label amenity.description
+    = f.check_box amenity.description, include_hidden: false

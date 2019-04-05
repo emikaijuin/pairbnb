@@ -21,8 +21,8 @@
   </head>
   <body>
 
-      <div class="ui segment">
-        <div class="ui secondary menu pointing" style="border:0;">
+      <div class="ui segment" id="navbar">
+        <div class="ui secondary menu pointing" style="border:0">
           <div class="item">
             <%= link_to root_url do %>
               <%= image_tag "/images/airbnb_logo.PNG", alt: "airbnb-logo", class: "ui image", style: "width:34px; height: auto; "%>
@@ -49,7 +49,7 @@
               Messages
             </a>
 
-            <% if signed_in? %>                
+            <% if signed_in? %>
               <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "ui item" %>
             <% else %>
               <%= link_to "Sign In", new_user_session_path, class: "ui item" %>
@@ -66,7 +66,7 @@
         </div>
       </div>
 
-    <div class="container">
+    <div class="container" id="body-container">
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>

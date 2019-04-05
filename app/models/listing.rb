@@ -19,6 +19,10 @@ class Listing < ApplicationRecord
              })
   }
 
+  scope :filter_by_guests, ->(guests) {
+    where("guests > ?", guests)
+  }
+
   def self.featured
     Listing.all # this will change to trending listings based on reviews once review feature is implemented
   end

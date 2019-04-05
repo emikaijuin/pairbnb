@@ -2,16 +2,16 @@ class ListingsController < ApplicationController
   before_action :set_listing, except: [:index, :new, :create, :property_types]
 
   def index
-    if params[:search]
-      @listings = Listing.where(city: params[:city])
-    elsif params[:filter]
-      @listings = Listing.filter_by_amenities(params[:filter].keys).page(params[:page]).per(24)
-    else
-      @listings = Listing.order(:title).page(params[:page]).per(24)
-    end
+    @listings = Listing.order(:title).page(params[:page]).per(24)
+    @listings = @listings.where(city: params[:city]) if params[:search]
+    @listings = @listings.filter_by_amenities(params[:amenities].keys) if params[:amenities]
+    @listings = @listings.filter_by_guests(params[:guests]) if params[:guests]
+    # @listings = @listings.filter_by_dates(params[:dates]) if params[:dates] # add bookings before implementing
 
     respond_to do |format|
-      format.html()
+      format.html {
+        @amenities = Amenity.all
+      }
       format.js { render :filter }
     end
   end
@@ -53,7 +53,7 @@ class ListingsController < ApplicationController
   private
 
   def set_listing
-    @listing = Listing.find(params[:id])
+    @listing = Listing.includes(:amenities).find(params[:id])
   end
 
   def listing_params
