@@ -1,18 +1,27 @@
 /// INDEX PAGE
 
+// .listings-filters {
+//   width: 336px;
+//   position: fixed;
+//   height: 100%;
+//   padding: 8px;
+// }
+
 .listings-filters {
- width: 336px;
- position: fixed;
- height: 100%;
+  // width: 100%;
+  // position: fixed;
+  // height: 67px;
+  // border: 1px solid red;
 }
 .listings-container {
- margin-left: 336px;
+  display: flex;
+  justify-content: center;
 }
 
 .listings-items-container {
- display: flex;
- flex-wrap: wrap;
- justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .paginate {
@@ -75,8 +84,6 @@
 
   height: 200vh; // temporary height to test sticky calendar
 }
-  
-
 
 // basic details
 
@@ -96,9 +103,9 @@
 }
 
 .listing-details .basic .text {
- float: left;
- margin-top: 10px;
- width: 80%;
+  float: left;
+  margin-top: 10px;
+  width: 80%;
 }
 
 .listing-details .basic .text .property_type {
@@ -114,7 +121,7 @@
   margin-top: 15px;
 }
 
-// overview 
+// overview
 
 .listing-details .overview .feature {
   display: flex;
@@ -136,7 +143,7 @@
   margin-right: 10px;
 }
 
-// description 
+// description
 
 .listing-details .description {
   overflow: hidden;
@@ -147,30 +154,30 @@
 }
 
 // booking calendar
- .booking-calendar-container {
+.booking-calendar-container {
   width: 40%;
   padding-left: 5%;
   padding-top: 3%;
 
   position: sticky;
-  top: 20px;
+  top: 100px;
 }
 
- .calendar {
+.calendar {
   border: 1px solid gainsboro;
   border-radius: 5px;
   padding: 7% 5%;
   background-color: white;
 }
 
- .calendar .price {
+.calendar .price {
   font-size: 1.6rem;
-  color: rgb(72,72,72);
+  color: rgb(72, 72, 72);
 }
 
 .calendar form button {
   width: 100%;
-  background-color: #FF5A5F !important;
+  background-color: #ff5a5f !important;
   color: white !important;
   font-size: 0.75rem;
 }
@@ -191,7 +198,6 @@
   overflow: hidden;
   padding: 5px;
 }
-
 
 .amenity-icon {
   margin-right: 15px;
