@@ -86,16 +86,16 @@ class ListingsController < ApplicationController
         "23", # fireplace
         "24", # iron
         "25", # hair_dryer
-        "26"  # private_entrance
+        "26",  # private_entrance
       ],
       house_rules: [
         "1", # suitable for children
         "2", # suitable for infants
         "3", # suitable for pets
         "4", # smoking allowed
-        "5" # events or parties allowed
+        "5", # events or parties allowed
       ],
-      images: []
+      images: [],
     )
   end
 end
