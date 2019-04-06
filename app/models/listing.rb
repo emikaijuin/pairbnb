@@ -11,17 +11,15 @@ class Listing < ApplicationRecord
   has_many :images, through: :listing_images
 
   scope :filter_by_amenities, ->(amenities) {
-    includes(:listing_amenities)
-      .where(listing_amenities: {
-               :amenity_id => (
-                 Amenity.where(:description => amenities)
-               )
-             })
-  }
+          joins(:amenities)
+            .where(amenities: { description: amenities })
+            .group("listings.id")
+            .having("count(amenity_id) = ?", amenities.count)
+        }
 
   scope :filter_by_guests, ->(guests) {
-    where("guests > ?", guests)
-  }
+          where("guests > ?", guests)
+        }
 
   def self.featured
     Listing.all # this will change to trending listings based on reviews once review feature is implemented
@@ -43,7 +41,7 @@ class Listing < ApplicationRecord
       "House" => ["House", "Bungalow", "Casa particular (Cuba)", "Chalet", "Cottage", "Cycladic House (Greece)", "Dammuso (Italy)", "Dome house", "Earth house", "Farm stay", "Houseboat", "Hut", "Lighthouse", "Pension (South Korea)", "Shepherd's hut (U.K., France)", "Tiny house", "Townhouse", "Trullo (Italy)", "Villa"],
       "Unique Space" => ["Barn", "Boat", "Bus", "Camper/RV", "Campsite", "Castle", "Cave", "Dome house", "Earth house", "Farm stay", "Houseboat", "Hut", "Igloo", "Island", "Lighthouse", "Pension (South Korea)", "Plane", "Shepherd's hut (U.K., France)", "Tent", "Tiny house", "Windmill", "Yurt"],
       "Bed and Breakfast" => ["Bed and Breakfast", "Casa particular (Cuba)", "Farm stay", "Minsu (Taiwan)", "Nature lodge", "Ryokan (Japan)"],
-      "Boutique Hotel" => ["Boutique Hotel", "Aparthotel", "Heritage hotel (India)", "Hostel", "Hotel", "Nature Lodge", "Resort", "Serviced apartment"]
+      "Boutique Hotel" => ["Boutique Hotel", "Aparthotel", "Heritage hotel (India)", "Hostel", "Hotel", "Nature Lodge", "Resort", "Serviced apartment"],
     }
   end
 end
